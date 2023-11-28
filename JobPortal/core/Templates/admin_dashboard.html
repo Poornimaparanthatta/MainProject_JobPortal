@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Admin Dashboard</h1>
+
+    <h2>Job Seekers</h2>
+    <ul>
+
+        <table border="1">
+            <thead>
+            <tr>
+                <th>Job seeker</th>
+                <th>Bio</th>
+                <th>Resume</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for job_seeker in job_seekers %}
+            <tr>
+                <td>{{job_seeker.fullname}}</td>
+                <td>{{job_seeker.bio}}</td>
+                <td>{{job_seeker.resume}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+            <!-- Add other job seeker details as needed -->
+
+    </ul>
+
+    <h2>Recruiters</h2>
+    <ul>
+
+            <table border="1">
+            <thead>
+            <tr>
+                <th>Recruiter</th>
+                <th>Company</th>
+                <th>Job title</th>
+                <th>Job description</th>
+                <th>Required qualifications</th>
+                <th>Desired qualifications</th>
+                <th>Responsibilities</th>
+                <th>Application deadline</th>
+                <th>Salary range</th>
+                <th>Location</th>
+                <th>Employment type</th>
+                <th>Company benefits</th>
+                <th>How to apply</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for recruiter in recruiters %}
+            <tr>
+                <td>{{recruiter.created_by}}</td>
+                <td>{{recruiter.company}}</td>
+                <td>{{recruiter.job_title}}</td>
+                <td>{{recruiter.job_description}}</td>
+                <td>{{recruiter.required_qualifications}}</td>
+                <td>{{recruiter.desired_qualifications}}</td>
+                <td>{{recruiter.responsibilities}}</td>
+                <td>{{recruiter.application_deadline}}</td>
+                <td>{{recruiter.salary_range}}</td>
+                <td>{{recruiter.location}}</td>
+                <td>{{recruiter.employment_type}}</td>
+                <td>{{recruiter.company_benefits}}</td>
+                <td>{{recruiter.how_to_apply}}</td>
+                <td><form method="post" action="{% url 'admin_dashboard' %}">
+      {% csrf_token %}
+      <input type="hidden" name="action" value="delete_recruiter">
+      <input type="hidden" name="recruiter_username" value="{{ recruiter.created_by.username}}">
+      <button type="submit">Delete {{ recruiter.username }}</button>
+            </form>
+    </td>
+            </tr>
+
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+            <!-- Add other recruiter details as needed -->
+
+    </ul>
+
+<a href="{% url 'logout' %}" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-lock_outline"></span>Log Out</a>
+
+
+</body>
+</html>

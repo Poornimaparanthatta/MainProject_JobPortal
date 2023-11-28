@@ -1,0 +1,447 @@
+
+
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>JobBoard &mdash; Website Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="{% static 'assets/css/custom-bs.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-select.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/line-icons/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/quill.snow.css' %}">
+
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  </head>
+  <body id="top">
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+
+    <!-- NAVBAR -->
+    <header class="site-navbar mt-3">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="site-logo col-6"><a href="index.html">JobBoard</a></div>
+
+          <nav class="mx-auto site-navigation">
+            <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
+              <li><a href="{% url 'job_seeker_dashboard' %}" class="nav-link">Home</a></li>
+<!--              <li><a href="about.html">About</a></li>-->
+              <li >
+                <a href="" class="active">Job Listings</a>
+                <a href="{% url 'applied_jobs' %}">Jobs applied</a>
+
+<!--                <ul class="dropdown">-->
+<!--                  <li><a href="job-single.html">Job Single</a></li>-->
+<!--                  <li><a href="post-job.html">Post a Job</a></li>-->
+<!--                </ul>-->
+              </li>
+<!--              <li class="has-children">-->
+<!--                <a href="services.html">Pages</a>-->
+<!--&lt;!&ndash;                <ul class="dropdown">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="services.html">Services</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="service-single.html">Service Single</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="blog-single.html">Blog Single</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="portfolio.html">Portfolio</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="portfolio-single.html">Portfolio Single</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="testimonials.html">Testimonials</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="faq.html">Frequently Ask Questions</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="gallery.html">Gallery</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                </ul>&ndash;&gt;-->
+<!--              </li>-->
+              <li><a href="{% url 'dashboard' %}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+</svg></a></li>
+              <li><a href="{% url 'profile' %}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4"/>
+</svg></a></li>
+              <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a></li>
+              <li class="d-lg-none"><a href="login.html">Log In</a></li>
+            </ul>
+          </nav>
+
+          <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
+            <div class="ml-auto">
+<!--              <a href="post-job.html" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-add"></span>Post a Job</a>-->
+              <a href="{% url 'logout' %}" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-lock_outline"></span>Log Out</a>
+            </div>
+            <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span class="icon-menu h3 m-0 p-0 mt-2"></span></a>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- HOME -->
+  <section class="section-hero home-section overlay inner-page bg-image" style="background-image: url('{% static 'assets/images/hero_1.jpg' %}');" id="home-section">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-12">
+            <div class="mb-5 text-center">
+              <h1 class="text-white font-weight-bold">The Easiest Way To Get Your Dream Job</h1>
+            </div>
+
+            <!-- Add this form at the top of your job_listings.html template -->
+
+  <form method="GET" action="{% url 'job_listings' %}">
+   <div class="row mb-5">
+  <!-- Search Criteria -->
+
+  <div  class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+    <label for="keyword"></label>
+    <input type="text" name="keyword" value="{{ request.GET.keyword }}" class="form-control form-control-lg" placeholder="Enter a keyword">
+  </div>
+
+  <div  class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+    <label for="location"></label>
+    <input type="text" name="location" value="{{ request.GET.location }}" class="form-control form-control-lg" placeholder="Location">
+  </div>
+
+
+  <!-- Sorting Options --><div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+  <label for="sort_by" style="background-color: white;"></label>
+<select name="sort_by" class="form-control form-control-lg">
+    <option value="">Sort by</option>
+  <option value="application_deadline" {% if request.GET.sort_by == 'application_deadline' %}selected{% endif %}>
+    Application Deadline
+  </option>
+  <!-- Add other sorting options as needed -->
+</select>
+</div>
+<!--  <div  class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">-->
+    <button type="submit" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg></button>
+<!--  </div>-->
+  </div>
+</form>
+
+
+          </div>
+        </div>
+      </div>
+
+      <a href="#next" class="scroll-button smoothscroll">
+        <span class=" icon-keyboard_arrow_down"></span>
+      </a>
+    </section>
+
+
+    <section class="site-section" id="next">
+      <div class="container">
+
+        <div class="row mb-5 justify-content-center">
+<!--          <div class="col-md-7 text-center">-->
+<!--            <h2 class="section-title mb-2">43,167 Job Listed</h2>-->
+<!--          </div>-->
+        </div>
+                      {% for job in job_details %}
+
+
+        <ul class="job-listings mb-5">
+          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+            <a href="job-single.html"></a>
+<!--            <div class="job-listing-logo">-->
+<!--              <img src="{% static 'assets/images/job_logo_1.jpg' %}" alt="Image" class="img-fluid">-->
+<!--            </div>-->
+
+
+            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+              <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+
+                <h2>Posted by : {{job.recruiter_name}}</h2>
+                <h2>Company : {{job.company}}</h2>
+                <strong>Posted date : {{job.created_date}}</strong><br><br>
+                <strong>Job title : {{job.job_title}}</strong><br><br>
+                <strong>Job description : {{job.job_description|linebreaks }}</strong><br><br>
+                <strong>Required qualifications : {{job.required_qualifications|linebreaks }}</strong><br><br>
+                <strong>Desired qualifications : {{job.desired_qualifications|linebreaks }}</strong><br><br>
+                <strong>Responsibilities : {{job.responsibilities|linebreaks }}</strong><br><br>
+                <strong>Application deadline : {{job.application_deadline}}</strong><br><br>
+                <strong>Salary range : {{job.salary_range}}</strong><br><br>
+                <strong>Company benefits : {{job.company_benefits|linebreaks }}</strong><br><br>
+                <strong>How to apply : {{job.how_to_apply|linebreaks }}</strong><br><br>
+              </div>
+              <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+                <span class="icon-room"></span>{{job.location}}
+              </div>
+              <div class="job-listing-meta">
+                <span class="badge badge-danger">{{job.employment_type}}</span><br><br>
+                <p><a href="{% url 'apply_for_job' recruiter_name=job.recruiter_name %}">Apply Now</a></p>
+
+
+          </li>
+<!--          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">-->
+<!--            <a href="job-single.html"></a>-->
+<!--            <div class="job-listing-logo">-->
+<!--              <img src="{% static 'assets/images/job_logo_2.jpg' %}" alt="Image" class="img-fluid">-->
+<!--            </div>-->
+
+<!--            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">-->
+<!--              <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">-->
+<!--                <h2>Digital Marketing Director</h2>-->
+<!--                <strong>Sprint</strong>-->
+<!--              </div>-->
+<!--              <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">-->
+<!--                <span class="icon-room"></span> Overland Park, Kansas-->
+<!--              </div>-->
+<!--              <div class="job-listing-meta">-->
+<!--                <span class="badge badge-success">Full Time</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </li>-->
+
+<!--          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">-->
+<!--            <a href="job-single.html"></a>-->
+<!--            <div class="job-listing-logo">-->
+<!--              <img src="{% static 'assets/images/job_logo_3.jpg' %}" alt="Image" class="img-fluid">-->
+<!--            </div>-->
+
+<!--            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">-->
+<!--              <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">-->
+<!--                <h2>Back-end Engineer (Python)</h2>-->
+<!--                <strong>Amazon</strong>-->
+<!--              </div>-->
+<!--              <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">-->
+<!--                <span class="icon-room"></span> Overland Park, Kansas-->
+<!--              </div>-->
+<!--              <div class="job-listing-meta">-->
+<!--                <span class="badge badge-success">Full Time</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </li>-->
+
+<!--          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">-->
+<!--            <a href="job-single.html"></a>-->
+<!--            <div class="job-listing-logo">-->
+<!--              <img src="{% static 'assets/images/job_logo_4.jpg' %}" alt="Image" class="img-fluid">-->
+<!--            </div>-->
+
+<!--            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">-->
+<!--              <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">-->
+<!--                <h2>Senior Art Director</h2>-->
+<!--                <strong>Microsoft</strong>-->
+<!--              </div>-->
+<!--              <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">-->
+<!--                <span class="icon-room"></span> Anywhere-->
+<!--              </div>-->
+<!--              <div class="job-listing-meta">-->
+<!--                <span class="badge badge-success">Full Time</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </li>-->
+
+<!--          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">-->
+<!--            <a href="job-single.html"></a>-->
+<!--            <div class="job-listing-logo">-->
+<!--              <img src="{% static 'assets/images/job_logo_5.jpg' %}" alt="Image" class="img-fluid">-->
+<!--            </div>-->
+
+<!--            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">-->
+<!--              <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">-->
+<!--                <h2>Product Designer</h2>-->
+<!--                <strong>Puma</strong>-->
+<!--              </div>-->
+<!--              <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">-->
+<!--                <span class="icon-room"></span> San Mateo, CA-->
+<!--              </div>-->
+<!--              <div class="job-listing-meta">-->
+<!--                <span class="badge badge-success">Full Time</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">-->
+<!--            <a href="job-single.html"></a>-->
+<!--            <div class="job-listing-logo">-->
+<!--              <img src="{% static 'assets/images/job_logo_1.jpg' %}" alt="Image" class="img-fluid">-->
+<!--            </div>-->
+
+<!--            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">-->
+<!--              <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">-->
+<!--                <h2>Product Designer</h2>-->
+<!--                <strong>Adidas</strong>-->
+<!--              </div>-->
+<!--              <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">-->
+<!--                <span class="icon-room"></span> New York, New York-->
+<!--              </div>-->
+<!--              <div class="job-listing-meta">-->
+<!--                <span class="badge badge-danger">Part Time</span>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--          </li>-->
+<!--          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">-->
+<!--            <a href="job-single.html"></a>-->
+<!--            <div class="job-listing-logo">-->
+<!--              <img src="{% static 'assets/images/job_logo_2.jpg' %}" alt="Image" class="img-fluid">-->
+<!--            </div>-->
+
+<!--            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">-->
+<!--              <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">-->
+<!--                <h2>Digital Marketing Director</h2>-->
+<!--                <strong>Sprint</strong>-->
+<!--              </div>-->
+<!--              <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">-->
+<!--                <span class="icon-room"></span> Overland Park, Kansas-->
+<!--              </div>-->
+<!--              <div class="job-listing-meta">-->
+<!--                <span class="badge badge-success">Full Time</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </li>-->
+
+
+
+
+        </ul>
+        {% endfor %}
+
+<!--        <div class="row pagination-wrap">-->
+<!--          <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">-->
+<!--            <span>Showing 1-7 Of 43,167 Jobs</span>-->
+<!--          </div>-->
+<!--          <div class="col-md-6 text-center text-md-right">-->
+<!--            <div class="custom-pagination ml-auto">-->
+<!--              <a href="#" class="prev">Prev</a>-->
+<!--              <div class="d-inline-block">-->
+<!--              <a href="#" class="active">1</a>-->
+<!--              <a href="#">2</a>-->
+<!--              <a href="#">3</a>-->
+<!--              <a href="#">4</a>-->
+<!--              </div>-->
+<!--              <a href="#" class="next">Next</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+      </div>
+    </section>
+
+<!--    <section class="py-5 bg-image overlay-primary fixed overlay" style="background-image: url('{% static 'assets/images/hero_1.jpg' %}');">-->
+<!--      <div class="container">-->
+<!--        <div class="row align-items-center">-->
+<!--          <div class="col-md-8">-->
+<!--            <h2 class="text-white">Looking For A Job?</h2>-->
+<!--            <p class="mb-0 text-white lead">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci impedit.</p>-->
+<!--          </div>-->
+<!--          <div class="col-md-3 ml-auto">-->
+<!--            <a href="#" class="btn btn-warning btn-block btn-lg">Sign Up</a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
+
+
+
+<!--    <footer class="site-footer">-->
+
+<!--      <a href="#top" class="smoothscroll scroll-top">-->
+<!--        <span class="icon-keyboard_arrow_up"></span>-->
+<!--      </a>-->
+
+<!--      <div class="container">-->
+<!--        <div class="row mb-5">-->
+<!--          <div class="col-6 col-md-3 mb-4 mb-md-0">-->
+<!--            <h3>Search Trending</h3>-->
+<!--            <ul class="list-unstyled">-->
+<!--              <li><a href="#">Web Design</a></li>-->
+<!--              <li><a href="#">Graphic Design</a></li>-->
+<!--              <li><a href="#">Web Developers</a></li>-->
+<!--              <li><a href="#">Python</a></li>-->
+<!--              <li><a href="#">HTML5</a></li>-->
+<!--              <li><a href="#">CSS3</a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--          <div class="col-6 col-md-3 mb-4 mb-md-0">-->
+<!--            <h3>Company</h3>-->
+<!--            <ul class="list-unstyled">-->
+<!--              <li><a href="#">About Us</a></li>-->
+<!--              <li><a href="#">Career</a></li>-->
+<!--              <li><a href="#">Blog</a></li>-->
+<!--              <li><a href="#">Resources</a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--          <div class="col-6 col-md-3 mb-4 mb-md-0">-->
+<!--            <h3>Support</h3>-->
+<!--            <ul class="list-unstyled">-->
+<!--              <li><a href="#">Support</a></li>-->
+<!--              <li><a href="#">Privacy</a></li>-->
+<!--              <li><a href="#">Terms of Service</a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--          <div class="col-6 col-md-3 mb-4 mb-md-0">-->
+<!--            <h3>Contact Us</h3>-->
+<!--            <div class="footer-social">-->
+<!--              <a href="#"><span class="icon-facebook"></span></a>-->
+<!--              <a href="#"><span class="icon-twitter"></span></a>-->
+<!--              <a href="#"><span class="icon-instagram"></span></a>-->
+<!--              <a href="#"><span class="icon-linkedin"></span></a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row text-center">-->
+<!--          <div class="col-12">-->
+<!--            <p class="copyright"><small>-->
+<!--              &lt;!&ndash; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. &ndash;&gt;-->
+<!--            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>-->
+<!--            &lt;!&ndash; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. &ndash;&gt;</small></p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </footer>-->
+
+  </div>
+
+    <!-- SCRIPTS -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/stickyfill.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.easing.1.3.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.animateNumber.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/quill.min.js' %}"></script>
+
+
+    <script src="{% static 'assets/js/bootstrap-select.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+
+
+  </body>
+</html>

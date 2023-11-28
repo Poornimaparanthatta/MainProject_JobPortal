@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Report Scam for Recruiters</h2>
+
+  {% if scam_recruiters.exists %}
+    <ul>
+      {% for scam_recruiter in scam_recruiters %}
+        <li>
+          <strong>Job Title:</strong> {{ scam_recruiter.scam_recruiter.job_title }}<br>
+          <strong>Created By:</strong> {{ scam_recruiter.scam_recruiter.created_by.username }}<br>
+          <!-- Add other details you want to display -->
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit Report</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No scam recruiters found for the specified user.</p>
+  {% endif %}
+</body>
+</html>

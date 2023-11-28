@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <h2>Delete Job Post</h2>
+
+  <p>Are you sure you want to delete the job post "{{ job_post.job_title }}"?</p>
+
+  <form method="post" action="{% url 'delete_job' job_post_id=job_post.id %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+
+  <a href="{% url 'recruiter_dashboardd' %}">Cancel</a></body>
+</html>
